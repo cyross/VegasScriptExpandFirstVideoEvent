@@ -1,4 +1,4 @@
-﻿namespace VegasScriptAssignVideoEventFromAudioEvent
+﻿namespace ExpandFirstVideoEvent
 {
     partial class VegasScriptSettingDialog
     {
