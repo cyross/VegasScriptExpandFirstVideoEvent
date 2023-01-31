@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ExpandFirstVideoEvent
 {
@@ -7,6 +8,28 @@ namespace ExpandFirstVideoEvent
         public VegasScriptSettingDialog()
         {
             InitializeComponent();
+        }
+
+        public List<string> VideoTrackNameDataSource
+        {
+            set { videoTrack.DataSource = value; }
+        }
+
+        public string VideoTrackName
+        {
+            get { return videoTrack.Text; }
+            set { videoTrack.Text = value; }
+        }
+
+        public List<string> AudioTrackNameDataSource
+        {
+            set { audioTrack.DataSource = value; }
+        }
+
+        public string AudioTrackName
+        {
+            get { return audioTrack.Text; }
+            set { audioTrack.Text = value; }
         }
 
         public double ExpandMargin
