@@ -8,7 +8,7 @@ namespace ExpandFirstVideoEvent
 {
     public class EntryPoint: IEntryPoint
     {
-        private SettingDialog settingDialog = null;
+        private static SettingDialog settingDialog = null;
 
         public void FromVegas(Vegas vegas)
         {
