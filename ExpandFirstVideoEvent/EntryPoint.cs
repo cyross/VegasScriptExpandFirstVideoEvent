@@ -8,6 +8,8 @@ namespace ExpandFirstVideoEvent
 {
     public class EntryPoint: IEntryPoint
     {
+        private SettingDialog settingDialog = null;
+
         public void FromVegas(Vegas vegas)
         {
             VegasHelper helper = VegasHelper.Instance(vegas);
@@ -54,20 +56,19 @@ namespace ExpandFirstVideoEvent
 
             try
             {
-                VegasScriptSettingDialog dialog = new VegasScriptSettingDialog()
-                {
-                    VideoTrackNameDataSource = videoKeyList,
-                    VideoTrackName = videoTrackKey,
-                    AudioTrackNameDataSource = audioKeyList,
-                    AudioTrackName= audioTrackKey,
-                    ExpandMargin = VegasScriptSettings.ExpandVideoEventMargin
-                };
+                if(settingDialog == null) { settingDialog = new SettingDialog(); }
 
-                if (dialog.ShowDialog() == DialogResult.Cancel) { return; }
+                settingDialog.VideoTrackNameDataSource = videoKeyList;
+                settingDialog.VideoTrackName = videoTrackKey;
+                settingDialog.AudioTrackNameDataSource = audioKeyList;
+                settingDialog.AudioTrackName = audioTrackKey;
+                settingDialog.ExpandMargin = VegasScriptSettings.ExpandVideoEventMargin;
 
-                double margin = dialog.ExpandMargin;
-                VideoTrack videoTrack = videoKeyValuePairs[dialog.VideoTrackName];
-                AudioTrack audioTrack = audioKeyValuePairs[dialog.AudioTrackName];
+                if (settingDialog.ShowDialog() == DialogResult.Cancel) { return; }
+
+                double margin = settingDialog.ExpandMargin;
+                VideoTrack videoTrack = videoKeyValuePairs[settingDialog.VideoTrackName];
+                AudioTrack audioTrack = audioKeyValuePairs[settingDialog.AudioTrackName];
 
                 helper.ExpandFirstVideoEvent(videoTrack, audioTrack, margin);
 
