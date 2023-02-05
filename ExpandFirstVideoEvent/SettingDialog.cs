@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace ExpandFirstVideoEvent
 {
-    public partial class VegasScriptSettingDialog : Form
+    public partial class SettingDialog : Form
     {
-        public VegasScriptSettingDialog()
+        public SettingDialog()
         {
             InitializeComponent();
         }

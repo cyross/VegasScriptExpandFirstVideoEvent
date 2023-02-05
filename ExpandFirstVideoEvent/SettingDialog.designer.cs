@@ -1,6 +1,6 @@
 ﻿namespace ExpandFirstVideoEvent
 {
-    partial class VegasScriptSettingDialog
+    partial class SettingDialog
     {
         /// <summary>
         /// Required designer variable.
